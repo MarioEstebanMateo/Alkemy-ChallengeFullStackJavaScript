@@ -1,1 +1,1 @@
-# Alkemy-ChallengeFullStackJavasCript
+# Alkemy-ChallengeFullStackJavaScript
