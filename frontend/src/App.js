@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Formulario from "./components/Formulario";
+import Form from "./components/Form";
+import Movements from "./components/Movements";
 
 function App() {
   return (
     <div className="App">
-      <Formulario />;
+      <Form />;
+      <Movements />
     </div>
   );
 }
