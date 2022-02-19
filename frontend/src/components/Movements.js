@@ -1,50 +1,43 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
-class Movements extends React.Component {
-   
-    // Constructor 
-    constructor(props) {
-        super(props);
-   
-        this.state = {
-            items: [],
-            DataisLoaded: false
+const Movements = (props) => {
+    
+    const [loading, setLoading] = useState(false);
+    const [movements, setMovements] = useState([]);
+
+    useEffect(() => {
+        const loadMovements = async () => {
+            setLoading(true);
+            const response = await axios.get('http://localhost:3050/movements');
+            setMovements(response.data);
+            setLoading(false);
         };
-    }
-   
-    // ComponentDidMount is used to
-    // execute the code 
-    componentDidMount() {
-        fetch("https://localhost:3050/movements")
-            .then((res) => res.json())
-            .then((json) => {
-                this.setState({
-                    items: json,
-                    DataisLoaded: true
-                });
-            })
-    }
-    render() {
-        const { DataisLoaded, items } = this.state;
-        if (!DataisLoaded) return 
+
+        loadMovements();
+    }, []);
+    
+    return (
         <div>
-            <h1> Pleses wait some time.... </h1> 
-        </div>;
-        return (
-        <div className = "movements">
-            <h1> Listado de Movimientos </h1>  {
-                items.map((item) => ( 
-                <ul key = { item.id } >
-                    concept: { item.concept }, 
-                    amount: { item.amount }, 
-                    date: { item.date },
-                    type: { item.type } 
-                </ul>
-                ))
-            }
+            <div>
+                <h2>Movements List</h2>
+            </div>
+            <div>
+                    {loading ? (
+                        <p>Cargando...</p>
+                    ) : (
+                        movements.map(item => 
+                            <div key={item.id} >
+                                    concept={item.concept} 
+                                    amount={item.amount} 
+                                    date={item.date}
+                                    type={item.type}
+                            </div>
+                            )
+                    )}
+            </div>
         </div>
     );
 }
-}
-   
+
 export default Movements;

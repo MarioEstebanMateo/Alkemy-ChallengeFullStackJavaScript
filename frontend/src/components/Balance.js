@@ -1,44 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
+import axios from 'axios';
 
-class Balance extends React.Component {
-   
-    // Constructor 
-    constructor(props) {
-        super(props);
-   
-        this.state = {
-            item: [],
-            DataisLoaded: false
+const Balance = (props) => {
+    
+    const [loading, setLoading] = useState(false);
+    const [balance, setBalance] = useState([]);
+
+    useEffect(() => {
+        const loadBalance = async () => {
+            setLoading(true);
+            const response = await axios.get('http://localhost:3050/balance');
+            setBalance(response.data);
+            setLoading(false);
         };
-    }
-   
-    // ComponentDidMount is used to
-    // execute the code 
-    componentDidMount() {
-        fetch("https://localhost:3050/balance")
-            .then((res) => res.json())
-            .then((json) => {
-                this.setState({
-                    item: json,
-                    DataisLoaded: true
-                });
-            })
-    }
-    render() {
-        const { DataisLoaded, item } = this.state;
-        if (!DataisLoaded) return <div>
-            <h1> Please wait some time.... </h1> </div> ;
-        return (
+
+        loadBalance();
+    }, []);
+    
+    return (
         <div>
             <div>
-                <h1> Balance </h1>
+                <h2>Balance</h2>
             </div>
             <div>
-                <h3>item</h3>
+                    {loading ? (
+                        <p>Cargando...</p>
+                    ) : (
+                        balance.map(item => 
+                            <div>
+                                ${item.balance}
+                            </div>
+                            )
+                    )}
             </div>
         </div>
     );
 }
-}
-   
+
 export default Balance;
