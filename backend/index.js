@@ -36,6 +36,19 @@ app.get("/movements", (req, res) => {
   });
 });
 
+app.get("/balance", (req, res) => {
+  const sql = "SELECT SUM(movements.amount) as 'balance' FROM movements";
+
+  connection.query(sql, (error, results) => {
+    if (error) throw error;
+    if (results.length > 0) {
+      res.json(results);
+    } else {
+      res.send("None result");
+    }
+  });
+});
+
 app.get("/movements/:id", (req, res) => {
   const { id } = req.params;
   const sql = `SELECT * FROM movements WHERE id = ${id}`;
@@ -52,18 +65,26 @@ app.get("/movements/:id", (req, res) => {
 
 app.post("/add", (req, res) => {
   const sql = "INSERT INTO movements SET ?";
-
+  
   const movementObj = {
     concept: req.body.concept,
     amount: req.body.amount,
     date: req.body.date,
     type: req.body.type,
   };
+  if (movementObj.type=="expense") {
+    movementObj.amount = (movementObj.amount*-1);
+    connection.query(sql, movementObj, (error) => {
+      if (error) throw error;
+      res.send("Movement added");
+    });
+  } else {
+    connection.query(sql, movementObj, (error) => {
+      if (error) throw error;
+      res.send("Movement added");
+    });
+  }
 
-  connection.query(sql, movementObj, (error) => {
-    if (error) throw error;
-    res.send("Movement added");
-  });
 });
 
 app.put("/update/:id", (req, res) => {

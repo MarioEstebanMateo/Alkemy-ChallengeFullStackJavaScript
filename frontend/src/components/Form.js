@@ -57,7 +57,10 @@ class Formulario extends Component {
           </div>
           <div className="mt-3">
             <label htmlFor="type">Type</label>
-            <input type="text" value={this.state.value} name="type" onChange={this.handleInputChange} id="type" />
+            <select name="type" id="type" value={this.state.value} onChange={this.handleInputChange}>
+              <option value="income">Income</option>
+              <option value="expense">Expense</option>
+            </select>
           </div>
           <div className="mt-3">
             <input type="submit" value="Submit" />

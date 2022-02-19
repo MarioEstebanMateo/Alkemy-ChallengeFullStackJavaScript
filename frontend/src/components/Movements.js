@@ -26,8 +26,10 @@ class Movements extends React.Component {
     }
     render() {
         const { DataisLoaded, items } = this.state;
-        if (!DataisLoaded) return <div>
-            <h1> Pleses wait some time.... </h1> </div> ;
+        if (!DataisLoaded) return 
+        <div>
+            <h1> Pleses wait some time.... </h1> 
+        </div>;
         return (
         <div className = "movements">
             <h1> Listado de Movimientos </h1>  {
@@ -35,7 +37,7 @@ class Movements extends React.Component {
                 <ul key = { item.id } >
                     concept: { item.concept }, 
                     amount: { item.amount }, 
-                    date: { item.date }
+                    date: { item.date },
                     type: { item.type } 
                 </ul>
                 ))
