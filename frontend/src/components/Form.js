@@ -38,10 +38,13 @@ class Form extends Component {
         console.error(err);
       });
   };
- 
+  
+
+
   render() {
     return (
       <div className="container">
+        <h1>Add Income/Expense</h1>
         <form onSubmit={this.handleSubmit}>
           <div className="mt-3">
             <label htmlFor="concept">Concept</label>
@@ -63,7 +66,7 @@ class Form extends Component {
             </select>
           </div>
           <div className="mt-3">
-            <input type="submit" value="Submit" />
+            <button onClick={() => window.location.reload(false)}>Submit</button>
           </div>
         </form>
       </div>

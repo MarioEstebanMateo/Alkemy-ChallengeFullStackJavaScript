@@ -27,12 +27,20 @@ const Movements = (props) => {
                         <p>Cargando...</p>
                     ) : (
                         movements.map(item => 
-                            <div key={item.id} >
-                                    concept={item.concept} 
-                                    amount={item.amount} 
-                                    date={item.date}
-                                    type={item.type}
-                            </div>
+                            <table>
+                                <tr>
+                                    <th>Concept</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Type of Movement</th>
+                                </tr>
+                                <tr key={item.id} >
+                                        <td>{item.concept}</td>
+                                        <td>{item.amount}</td>
+                                        <td>{item.date}</td>
+                                        <td>{item.type}</td> 
+                                </tr>
+                            </table>
                             )
                     )}
             </div>
