@@ -1,4 +1,4 @@
-import React from "react";
+
 
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Balance from "./components/Balance";
@@ -8,9 +8,9 @@ import Movements from "./components/Movements";
 function App() {
   return (
     <div className="App">
-      <Balance />;
-      <Form />;
-      <Movements />;
+      <Balance />
+      <Form />
+      <Movements />
     </div>
   );
 }
