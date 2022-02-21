@@ -49,19 +49,19 @@ class Form extends Component {
         <div className='input-group'>
           <form onSubmit={this.handleSubmit}>
             <div className="mt-3">
-              <label class="form-label" for="concept">Concept</label>
+              <label className="form-label" for="concept">Concept</label>
               <input type="text" className="form-control" name="concept" onChange={this.handleInputChange} id="concept" placeholder='example: supermarket' required/>
             </div>
             <div className="mt-3">
-              <label class="form-label" for="amount">Amount</label>
+              <label className="form-label" for="amount">Amount</label>
               <input type="text" className="form-control" value={this.state.value} name="amount" onChange={this.handleInputChange} id="amount" placeholder='example: 10' required/>
             </div>
             <div className="mt-3">
-              <label class="form-label" for="date">Date</label>
+              <label className="form-label" for="date">Date</label>
               <input type="date" className="form-control" value={this.state.value} name="date" onChange={this.handleInputChange} id="date" placeholder='Pick the date' required/>
             </div>
             <div className="mt-3">
-              <label class="form-label" for="type">Type</label>
+              <label className="form-label" for="type">Type</label>
               <select name="type" className="form-select" id="type" value={this.state.value} onChange={this.handleInputChange} required>
                 <option selected>Open this menu to select</option>
                 <option value="income">Income</option>

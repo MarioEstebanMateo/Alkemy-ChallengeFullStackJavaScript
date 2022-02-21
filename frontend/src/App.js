@@ -1,21 +1,19 @@
 import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/App.css";
-import Balance from "./components/Balance";
-import Form from "./components/Form";
-import Movements from "./components/Movements";
+
 import Edit_Movement from "./components/Edit_Movement";
+import Home from "./components/Movements";
 
 function App() {
   return (
     <div className="App">
-      <Balance />
-      <Movements />
-        {/* <Router>
-            <Route exact path="/" component={App} />
-            <Route path="/Edit_Movement" component={Edit_Movement} />
-        </Router> */}
-      <Form />
+        <Router>
+          <Routes>
+            <Route exact path='/' element={<Home />}></Route>
+            <Route exact path='/edit/:id' element={<Edit_Movement />}></Route>
+          </Routes>
+        </Router>
     </div>
   );
 }
