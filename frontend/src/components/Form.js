@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import "../styles/Form.css";
 
 class Form extends Component {
   constructor(props) {
@@ -43,32 +44,35 @@ class Form extends Component {
 
   render() {
     return (
-      <div className="container">
-        <h1>Add Income/Expense</h1>
-        <form onSubmit={this.handleSubmit}>
-          <div className="mt-3">
-            <label htmlFor="concept">Concept</label>
-            <input type="text" name="concept" onChange={this.handleInputChange} id="concept" />
-          </div>
-          <div className="mt-3">
-            <label htmlFor="amount">Amount</label>
-            <input type="text" value={this.state.value} name="amount" onChange={this.handleInputChange} id="amount" />
-          </div>
-          <div className="mt-3">
-            <label htmlFor="date">Date</label>
-            <input type="date" value={this.state.value} name="date" onChange={this.handleInputChange} id="date" />
-          </div>
-          <div className="mt-3">
-            <label htmlFor="type">Type</label>
-            <select name="type" id="type" value={this.state.value} onChange={this.handleInputChange}>
-              <option value="income">Income</option>
-              <option value="expense">Expense</option>
-            </select>
-          </div>
-          <div className="mt-3">
-            <button onClick={() => window.location.reload(false)}>Submit</button>
-          </div>
-        </form>
+      <div className='container'>
+        <h2>Add Income/Expense</h2>
+        <div className='input-group'>
+          <form onSubmit={this.handleSubmit}>
+            <div className="mt-3">
+              <label class="form-label" for="concept">Concept</label>
+              <input type="text" className="form-control" name="concept" onChange={this.handleInputChange} id="concept" placeholder='example: supermarket' required/>
+            </div>
+            <div className="mt-3">
+              <label class="form-label" for="amount">Amount</label>
+              <input type="text" className="form-control" value={this.state.value} name="amount" onChange={this.handleInputChange} id="amount" placeholder='example: 10' required/>
+            </div>
+            <div className="mt-3">
+              <label class="form-label" for="date">Date</label>
+              <input type="date" className="form-control" value={this.state.value} name="date" onChange={this.handleInputChange} id="date" placeholder='Pick the date' required/>
+            </div>
+            <div className="mt-3">
+              <label class="form-label" for="type">Type</label>
+              <select name="type" className="form-select" id="type" value={this.state.value} onChange={this.handleInputChange} required>
+                <option selected>Open this menu to select</option>
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+              </select>
+            </div>
+            <div className="mt-3">
+              <button type="submit" className="btn btn-primary" onClick={() => window.location.reload(false)}>Submit</button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios';
+import "../styles/Balance.css";
 
 const Balance = (props) => {
     
@@ -18,7 +19,7 @@ const Balance = (props) => {
     }, []);
     
     return (
-        <div>
+        <div className='container'>
             <div>
                 <h2>Balance</h2>
             </div>

@@ -20,11 +20,11 @@ const connection = mysql.createConnection({
 
 //Routes
 app.get("/", (req, res) => {
-  res.send("Welcome to my API");
+  res.send("Api made by Mario Esteban Mateo for Alkemy Challenge");
 });
 
 app.get("/movements", (req, res) => {
-  const sql = "SELECT * FROM movements";
+  const sql = "SELECT movements.id, movements.concept, movements.amount, DATE_FORMAT(movements.date,'%d/%m/%Y') as date, movements.type FROM movements ORDER BY movements.id DESC LIMIT 0,10";
 
   connection.query(sql, (error, results) => {
     if (error) throw error;
