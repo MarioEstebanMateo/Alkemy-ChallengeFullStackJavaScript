@@ -19,16 +19,16 @@ const Balance = (props) => {
     }, []);
     
     return (
-        <div className='container'>
+        <div className='container-fluid balance'>
             <div>
                 <h2>Balance</h2>
             </div>
             <div>
                     {loading ? (
-                        <p>Cargando...</p>
+                        <p>Loading...</p>
                     ) : (
                         balance.map(item => 
-                            <div>
+                            <div className='balance_display'>
                                 ${item.balance}
                             </div>
                             )

@@ -44,7 +44,7 @@ class Form extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div className='container-fluid form'>
         <h2>Add Income/Expense</h2>
         <div className='input-group'>
           <form onSubmit={this.handleSubmit}>
@@ -68,7 +68,7 @@ class Form extends Component {
                 <option value="expense">Expense</option>
               </select>
             </div>
-            <div className="mt-3">
+            <div className="mt-3 mb-3 text-center">
               <button type="submit" className="btn btn-primary" onClick={() => window.location.reload(false)}>Submit</button>
             </div>
           </form>

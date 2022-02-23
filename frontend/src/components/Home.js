@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
-import "../styles/Movements.css";
+import "../styles/Home.css";
 import Balance from './Balance';
 import Form from './Form';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 const Home = (props) => {
     
@@ -26,8 +28,9 @@ const Home = (props) => {
 
     return (
         <>
+            <Navbar />
             <Balance />
-            <div className='container'>
+            <div className='container-fluid'>
                 <div className='movements_list_title'>
                     <h2>Movements List</h2>
                 </div>
@@ -60,6 +63,7 @@ const Home = (props) => {
                 </table>
             </div>
             <Form />
+            <Footer />
         </>
     );
 }

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./styles/App.css";
 
 import Edit_Movement from "./components/Edit_Movement";
-import Home from "./components/Movements";
+import Home from "./components/Home";
 
 function App() {
   return (
