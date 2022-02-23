@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-02-2022 a las 12:15:53
--- Versión del servidor: 10.4.18-MariaDB
--- Versión de PHP: 8.0.3
+-- Tiempo de generación: 23-02-2022 a las 02:39:07
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,10 +41,10 @@ CREATE TABLE `movements` (
 --
 
 INSERT INTO `movements` (`id`, `concept`, `amount`, `date`, `type`, `user_id`) VALUES
-(1, 'bakery', 10, '2022-02-14', 'income', 0),
-(2, 'rent', 100, '2022-02-01', 'expense', 0),
-(4, 'supermarket', 1000, '2022-02-17', 'expense', 0),
-(5, 'carwash', 10, '2022-02-17', 'expense', 0);
+(7, 'salary', 5000, '2022-02-22', 'income', 0),
+(12, 'supermarket', -25, '2022-02-22', 'expense', 0),
+(13, 'carwash', -50, '2022-02-22', 'expense', 0),
+(14, 'dog care', -50, '2022-02-22', 'expense', 0);
 
 -- --------------------------------------------------------
 
@@ -82,7 +82,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `movements`
 --
 ALTER TABLE `movements`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
